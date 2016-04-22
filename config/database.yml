@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  username: gcarlo
+  password: password
+
+development:
+  <<: *default
+  database: refile_dev
