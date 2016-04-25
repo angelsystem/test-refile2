@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require refile
+//= require dropzone
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
