@@ -25,9 +25,12 @@ ActiveRecord::Schema.define(version: 20160422012347) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "file_id"
-    t.integer  "blog_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "pictures", ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
 
 end
