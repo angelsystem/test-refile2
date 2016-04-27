@@ -35,7 +35,7 @@ gem 'simple_form'
 gem 'cloudinary'
 gem "refile", require: "refile/rails" , git: 'https://github.com/refile/refile.git', branch: 'master'
 gem "refile-mini_magick"
-gem 'dropzonejs-rails'
+gem 'refile-s3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

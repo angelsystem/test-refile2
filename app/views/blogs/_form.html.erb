@@ -1,10 +1,10 @@
-<%= simple_form_for(@blog, html: { multipart: true, class: "dropzone"}) do |f| %>
+<%= simple_form_for(@blog) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :content %>
-    <%= f.attachment_field :pictures_files, direct: true, multiple: true %>
+    <%= f.input :pictures_files, as: :attachment, direct: true, multiple: true %>
     <div id="image"></div>
     <% i = 0 %>
     <div>
