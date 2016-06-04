@@ -25,4 +25,10 @@ $(document).on("upload:complete", "form", function(e) {
   if(!$(this).find("input.uploading").length) {
     $(this).find("input[type=submit]").removeAttr("disabled")
   }
+  
+  image_info = $("input[name='user[image]']").val()
+  image_id = JSON.parse(image_info).id
+
+  url = "https://s3-us-west-2.amazonaws.com/weclubdemo3/cache" + image_id
+  $("#image").html($("<img />").attr({src: url}))
 });

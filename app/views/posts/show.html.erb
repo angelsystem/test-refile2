@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <%= @post.name %>
+  <% @post.pictures.each do |image| %>
+    <%= attachment_image_tag(image, :file, :fill, 300, 300) %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
