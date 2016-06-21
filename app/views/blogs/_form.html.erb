@@ -8,12 +8,12 @@
     <div id="image"></div>
     <% i = 0 %>
     <div>
-      <%= f.simple_fields_for :pictures do |p| %>      
+      <%= f.simple_fields_for :pictures do |p| %>
         <%= image_tag attachment_url(@blog.pictures[i], :file, :fill, 100, 100) %>
         <%= p.input :_destroy, label: 'eliminar', as: :boolean %>
         <% i+=1 %>
       <% end %>
-    </div>    
+    </div>
   </div>
 
   <div class="form-actions">

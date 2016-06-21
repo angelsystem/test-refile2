@@ -3,9 +3,16 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+      aria-valuemin="0" aria-valuemax="100" style="width:0%">
+        <span class="sr-only" id='progress-bar-text'></span>
+      </div>
+    </div>
     <%= f.simple_fields_for :pictures do |p| %>
       <%= p.input :file, as: :attachment, direct: true %>
     <% end %>
+  </div>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

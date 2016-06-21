@@ -2,7 +2,8 @@
 <p>
   <%= @post.name %>
   <% @post.pictures.each do |image| %>
-    <%= attachment_image_tag(image, :file, :fill, 300, 300) %>
+    <%= attachment_image_tag(image, :file, :fill, 400, 400) %>
+    <%= image_tag attachment_url(image, :file) %>
   <% end %>
 </p>
 
