@@ -8,7 +8,7 @@
     <%#= f.object.presigned_url %>
     <div class="uploader">
       <%#= f.attachment_field :image, direct: true %>
-      <%= f.attachment_field :image, presigned: true, direct: true, data: { remote_id: :article_image_cache_id } %>
+      <%= f.attachment_field :image, presigned: true, direct: true, multilple: true, data: { remote_id: :article_image_cache_id } %>
     </div>
     <div class="progress">
       <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"

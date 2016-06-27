@@ -4,8 +4,17 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :content %>
-    <%= f.input :pictures_files, as: :attachment, direct: true, multiple: true %>
-    <div id="image"></div>
+    <%= f.input :pictures_files, as: :attachment, direct: true %>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar"
+      aria-valuemin="0" aria-valuemax="100" style="width:0%">
+      </div>
+    </div>
+    <div id="image-content" class="display-none">
+      <div id="offer_store_images_files_image" >
+
+      </div>
+    </div>
     <% i = 0 %>
     <div>
       <%= f.simple_fields_for :pictures do |p| %>

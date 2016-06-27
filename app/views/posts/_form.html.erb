@@ -1,4 +1,4 @@
-<%= simple_form_for @post do |f| %>
+<%= simple_form_for @post, input_html: { multipart: true } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -9,9 +9,7 @@
         <span class="sr-only" id='progress-bar-text'></span>
       </div>
     </div>
-    <%= f.simple_fields_for :pictures do |p| %>
-      <%= p.input :file, as: :attachment, direct: true %>
-    <% end %>
+    <%= file_field_tag "pictures[]", type: :file, multiple: true, direct: true, presigned: true %>
   </div>
   <div class="form-actions">
     <%= f.button :submit %>

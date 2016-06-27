@@ -28,7 +28,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
+          if @post.save
+            if params[:pictures].present?
+          begin
+            @post.create_pictures! params[:pictures]
+          rescue ActiveRecord::RecordInvalid
+            redirect_to @post && return
+          end
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -43,6 +50,13 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        if params[:pictures].present?
+          begin
+            @post.create_pictures! params[:pictures]
+          rescue ActiveRecord::RecordInvalid
+            redirect_to @post && return
+          end
+        end
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -70,6 +84,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, pictures_attributes: [:file, :_destroy])
+      params.require(:post).permit(:name, pictures_attributes: [:id, :file, :_destroy])
     end
 end
